@@ -32,4 +32,5 @@ Monorepo ini menggabungkan:
 ```docker-compose down```
 
 ## 🗃️ Masuk Container
-### - Backend (Laravel / PHP-FPM)
+### • Backend (Laravel / PHP-FPM)
+### • Frontend (React / Vite)
