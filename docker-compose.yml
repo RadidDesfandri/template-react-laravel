@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  # Service untuk Backend (Laravel/PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+    networks:
+      - app-network
+
+  # Service untuk Web Server (Nginx)
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    container_name: nginx_web
+    restart: unless-stopped
+    ports:
+      - "8080:80" # Akses aplikasi dari http://localhost:8080
+    volumes:
+      - ./backend:/var/www # Mount backend untuk diakses Nginx
+      - ./frontend/dist:/var/www/frontend # Mount hasil build frontend
+    networks:
+      - app-network
+    depends_on:
+      - app
+      - frontend
+
+  # Service untuk Frontend Development (Vite Hot Reload)
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    container_name: react_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000" # Port untuk Vite dev server
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Prevent node_modules from being overwritten
+    networks:
+      - app-network
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080/api
+      - CHOKIDAR_USEPOLLING=true # Enable polling for file watching in Docker
+
+networks:
+  app-network:
+    driver: bridge

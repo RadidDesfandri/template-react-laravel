@@ -1,0 +1,8 @@
+# Abaikan folder node_modules dari frontend dan backend
+frontend/node_modules
+backend/vendor
+
+# Abaikan file-file lain yang tidak perlu
+.git
+.env
+*.log
