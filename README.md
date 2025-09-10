@@ -33,4 +33,7 @@ Monorepo ini menggabungkan:
 
 ## 🗃️ Masuk Container
 ### • Backend (Laravel / PHP-FPM)
+Masuk kedalam container
+```docker exec -it laravel_app bash```
+
 ### • Frontend (React / Vite)
