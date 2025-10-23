@@ -34,6 +34,43 @@ Monorepo ini menggabungkan:
 ## 🗃️ Masuk Container
 ### • Backend (Laravel / PHP-FPM)
 Masuk kedalam container
-```docker exec -it laravel_app bash```
+```docker exec -it laravel_app sh```
+#### Jalankan
+```
+php artisan migrate
+composer install
+```
 
 ### • Frontend (React / Vite)
+```docker exec -it react_frontend sh```
+#### Jalankan
+```
+npm install
+```
+
+### • Nginx
+```
+docker exec -it nginx_web sh
+```
+
+## 📇 Workflow Development
+### • Frontend
+Source code ada di folder frontend/
+Hot reload otomatis via Vite Dev Server di port 3000
+
+### • Backend
+Source code ada di folder backend/
+Bisa jalankan artisan command langsung di dalam container.
+Akses API: ```http://localhost:8080/api```
+
+## 💡 Tips
+Jika ada perubahan di Dockerfile jalankan ulang dengan:
+```docker-compose up -d --build```
+
+Untuk melihat log service:
+```
+docker-compose logs -f app
+docker-compose logs -f frontend
+docker-compose logs -f web
+
+```
