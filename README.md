@@ -72,5 +72,4 @@ Untuk melihat log service:
 docker-compose logs -f app
 docker-compose logs -f frontend
 docker-compose logs -f web
-
 ```
