@@ -55,7 +55,7 @@ docker exec -it nginx_web sh
 
 ## 📇 Workflow Development
 ### • Frontend
-Source code ada di folder frontend/
+Source code ada di folder frontend/ <br/>
 Hot reload otomatis via Vite Dev Server di port 3000
 
 ### • Backend
