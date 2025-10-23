@@ -19,22 +19,30 @@ Monorepo ini menggabungkan:
 
 ## ⚡ Cara Install & Menjalankan
 ### • Clone repository
-```git clone https://github.com/RadidDesfandri/template-react-laravel.git```
+```
+git clone https://github.com/RadidDesfandri/template-react-laravel.git
+```
 
 ### • Build & start container
-```docker-compose up -d --build```
+```
+docker-compose up -d --build
+```
 
 ### • Akses aplikasi
 - Frontend Dev (Vite): http://localhost:3000
 - Backend (Laravel via Nginx): http://localhost:8080
 
 ### • Stop container
-```docker-compose down```
+```
+docker-compose down
+```
 
 ## 🗃️ Masuk Container
 ### • Backend (Laravel / PHP-FPM)
 Masuk kedalam container
-```docker exec -it laravel_app sh```
+```
+docker exec -it laravel_app sh
+```
 #### Jalankan
 ```
 php artisan migrate
@@ -42,7 +50,9 @@ composer install
 ```
 
 ### • Frontend (React / Vite)
-```docker exec -it react_frontend sh```
+```
+docker exec -it react_frontend sh
+```
 #### Jalankan
 ```
 npm install
