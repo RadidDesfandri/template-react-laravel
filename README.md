@@ -59,7 +59,7 @@ Source code ada di folder frontend/ <br/>
 Hot reload otomatis via Vite Dev Server di port 3000
 
 ### • Backend
-Source code ada di folder backend/
+Source code ada di folder backend/ <br/>
 Bisa jalankan artisan command langsung di dalam container.
 Akses API: ```http://localhost:8080/api```
 
